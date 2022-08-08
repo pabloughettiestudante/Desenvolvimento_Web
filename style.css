@@ -1,0 +1,62 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    background: #ffff00;
+}
+
+.jogo_memoria {
+    width: 1640px;
+    height: 1640px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+.carta_memoria {
+    width: calc(25% - 10px);
+    height: calc(33.333% - 10px);
+    margin: 5px;
+    position: relative;
+    transform-style: preserve-3d;
+    box-shadow: 1px 1px 1px rgba(31, 47, 189, 0.452);
+    transform: scale(1);
+    transition: transform .5s;
+}
+
+.frente_carta,
+.verso_carta {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    background: #d3511e;
+    backface-visibility: hidden;
+}
+
+.carta_memoria:active {
+    transform: scale(0.97);
+    transition: transform .2s;
+}
+
+.carta_memoria.flip {
+    transform: rotateY(180deg);
+}
+
+.frente_carta {
+    transform: rotateY(180deg);
+}
+
+#texto {
+    font-family: Arial;
+    font-size: 100px;
+    color: black;
+    position: relative;
+}
